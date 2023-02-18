@@ -2,21 +2,54 @@
 
   <h1><%= @list.name %></h1>
 
-  <% @bookmarks.each do |bookmark| %>
-    <%= bookmark.comment %>
-    <%= link_to "Delete review",
-        bookmark_path(bookmark),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <% end %>
-
-  <h3>Add a movie</h3>
-
-  <%= simple_form_for ([@list, @bookmark]) do |f| %>
-    <%= f.association :movie %>
-    <%= f.input :comment %>
-    <%= f.button :submit, "Add to list" %>
-  <% end %>
-
   <p><%= link_to "< Back to all lists", lists_path %></p>
+
+  <div class="grid-wrapper">
+
+    <div class="movie-cards">
+
+      <% @bookmarks.each do |bookmark| %>
+
+        <% text = bookmark.movie.overview %>
+        <% text = text[0...220] + "..." if text.length > 220 %>
+
+        <div class="movie-card">
+          <div class="picture" style="background-image: url(<%=bookmark.movie.poster_url%>)">
+          </div>
+          <div class="text-content">
+            <div class="title-rating">
+              <p><strong><%= bookmark.movie.title %></strong></p>
+              <p><i class="fa-regular fa-star"></i> <%= bookmark.movie.rating %></p>
+            </div>
+            <div class="overview">
+              <p><%= text %></p>
+            </div>
+            <div class="comment-delete">
+              <div class="comment">
+                <p><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %></p>
+              </div>
+              <div class="delete">
+                <%= link_to "delete",
+                  bookmark_path(bookmark),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="add-movie">
+      <h3>Add a movie</h3>
+
+      <%= simple_form_for ([@list, @bookmark]) do |f| %>
+        <%= f.association :movie %>
+        <%= f.input :comment %>
+        <%= f.button :submit, "+ Add to list" %>
+      <% end %>
+    </div>
+
+  </div>
+
 
 </div>

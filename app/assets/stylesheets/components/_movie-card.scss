@@ -1,0 +1,50 @@
+.movie-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movie-card {
+  width: 450px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+  margin: 20px;
+
+  .text-content {
+    padding: 10px;
+  }
+
+  .picture {
+    height: 150px;
+    width: 450px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .title-rating {
+    justify-content: space-between;
+    display: flex;
+  }
+
+  .comment-delete {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p {
+    font-size: 15px;
+  }
+}
+
+.title-rating p {
+  margin-right: 5px;
+}
+
+.grid-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-movie {
+  width: 50%;
+}

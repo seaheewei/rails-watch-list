@@ -1,6 +1,21 @@
 .navbar-lewagon {
+  display: flex;
   justify-content: space-between;
-  background: white;
+  background: whitesmoke;
+  padding: 10px;
+
+  h3 {
+    padding: 10px;
+  }
+}
+
+.navbar-links {
+  display: flex;
+
+  p {
+    padding: 10px;
+  }
+
 }
 
 .navbar-lewagon .navbar-collapse {

@@ -4,8 +4,16 @@
 
   <p><%= link_to "+ Create a list", new_list_path %></p>
 
-  <% @lists.each do |list| %>
-    <h3><%= link_to list.name, list_path(list) %></h3>
-  <% end %>
+  <div class="list-cards">
+    <% @lists.each do |list| %>
+      <div class="list-card">
+        <h3><%= link_to list.name, list_path(list) %></h3>
+      </div>
+    <% end %>
+  </div>
+
+  <br>
+  <br>
+  <br>
 
 </div>
