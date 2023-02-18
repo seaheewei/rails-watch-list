@@ -1,5 +1,6 @@
 .list-cards {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 
@@ -7,6 +8,7 @@
   height: 150px;
   width: 300px;
   padding: 20px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
