@@ -2,6 +2,18 @@
 
   <h1><%= @list.name %></h1>
 
+  <% @bookmarks.each do |bookmark| %>
+    <%= bookmark.comment %>
+  <% end %>
+
+  <h3>Add a movie</h3>
+
+  <%= simple_form_for ([@list, @bookmark]) do |f| %>
+    <%= f.association :movie %>
+    <%= f.input :comment %>
+    <%= f.button :submit, "Add to list" %>
+  <% end %>
+
   <p><%= link_to "< Back to all lists", lists_path %></p>
 
 </div>
