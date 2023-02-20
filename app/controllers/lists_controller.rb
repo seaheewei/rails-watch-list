@@ -1,10 +1,14 @@
 class ListsController < ApplicationController
   def index
+    @title = "Add your favourite movies"
+    @photo = 'movies_tgr7cc.jpg'
     @lists = List.all
   end
 
   def new
     @list = List.new
+    @title = "Add your favourite movies"
+    @photo = 'movies_tgr7cc.jpg'
   end
 
   def create
@@ -18,6 +22,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @title = @list.name
+    @photo = @list.photo.key
     @bookmarks = @list.bookmarks
     @bookmark = Bookmark.new
     @movies = Movie.all
@@ -26,6 +32,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end
