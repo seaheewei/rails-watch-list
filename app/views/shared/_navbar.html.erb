@@ -1,5 +1,7 @@
 <div class="navbar-lewagon">
-  <h3><i class="fa-solid fa-couch"></i> Couch Potate</h3>
+  <h3 class="homepage"><%= link_to(lists_path) do %>
+    <i class="fa-solid fa-couch"></i> Couch Potate</h3>
+  <% end %>
   <div class="navbar-links">
     <p><%= link_to "My lists", lists_path %></p>
     <p><%= link_to "New list", new_list_path %></p>
