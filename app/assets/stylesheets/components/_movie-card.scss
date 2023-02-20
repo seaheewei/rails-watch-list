@@ -41,8 +41,9 @@
 }
 
 .grid-wrapper {
-  display: flex;
-  justify-content: space-between;
+  display: inline-grid;
+  grid-template-columns: 10fr 3fr;
+  grid-gap: 15px;
 }
 
 .add-movie {

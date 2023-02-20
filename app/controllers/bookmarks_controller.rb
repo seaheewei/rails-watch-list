@@ -4,6 +4,7 @@ class BookmarksController < ApplicationController
     @bookmarks = Bookmark.all
     @bookmark = Bookmark.new(bookmark_params)
     @list = List.find(params[:list_id])
+    @photo = @list.photo.key
     @bookmark.list = @list
     if @bookmark.save
       redirect_to list_path(@bookmark.list)
