@@ -13,6 +13,8 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @photo = 'movies_tgr7cc.jpg'
+    @title = "Add your favourite movies"
     if @list.save
       redirect_to list_path(@list)
     else
