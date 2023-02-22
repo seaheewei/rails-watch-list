@@ -8,6 +8,11 @@
     <% @lists.each do |list| %>
       <div class="list-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=cl_image_path list.photo.key, height: 150, crop: :scale %>)">
         <h3><%= link_to list.name, list_path(list) %></h3>
+        <div class="delete-icon">
+          <%= link_to list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
